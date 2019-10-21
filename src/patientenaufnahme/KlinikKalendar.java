@@ -24,13 +24,8 @@ public class KlinikKalendar {
 	public void terminErstellen(String patientVorname, String patientNachname, String arztKey, String wann) {
 		Arzt doc = Arzt.valueOf(arztKey.toLowerCase());
 		LocalDateTime localDateTime;
-		try {
-			localDateTime = LocalDateTime.parse(wann,
-					DateTimeFormatter.ofPattern("d/M/yyyy H:mm", Locale.GERMANY));
-		} catch (Throwable t) {
-			throw new RuntimeException("Kann keine Zeit/Datum aus: [" + wann.toUpperCase()
-					+ "] erstellen, bitte in dem Format [d/M/yyyy h:m] eingeben" + t.getMessage());
-		}
+		
+		localDateTime = DatumUhrzeitUmwandler.umwandleStringToDateTime(wann, heute);
 		PatientenTermin termin = new PatientenTermin(patientVorname, patientNachname, localDateTime, doc);
 		termine.add(termin);
 	}

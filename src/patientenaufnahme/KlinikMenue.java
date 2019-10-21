@@ -55,7 +55,7 @@ public class KlinikMenue {
 		String nachname = scanner.nextLine();
 		System.out.print("  Patient Vorname: ");
 		String vorname = scanner.nextLine();
-		System.out.print("  Datum des Termins (d/M/yyyy H:m): ");
+		System.out.print("  Datum des Termins (d.M.yyyy H:mm): ");
 		String wann = scanner.nextLine();
 		System.out.print("  Arzt Nachname: ");
 		String arzt = scanner.nextLine();
@@ -72,7 +72,7 @@ public class KlinikMenue {
 	private static void alleTermineZeigen(Scanner scanner) throws Throwable {
 		System.out.println("\n\nAlle Termine im System:");
 		for (PatientenTermin termin : kalendar.getTermine()) {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy H:m");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy H:mm");
 			String terminZeit = formatter.format(termin.getTermin());
 			System.out.println(String.format("%s:  %s, %s\t\tArzt: %s", terminZeit, termin.getPatientNachname(),
 					termin.getPatientVorname(), termin.getArzt().getArztNachName()));
@@ -85,9 +85,9 @@ public class KlinikMenue {
 	{
 		for(PatientenTermin termin : termine)
 		{
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy H:mm");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.yyyy H:mm");
 			String terminZeit = formatter.format(termin.getTerminDatumUhrzeit());
-			System.out.println(String.format("%s:  %s, %s\t\tDoctor: %s", terminZeit, termin.getPatientNachname(),
+			System.out.println(String.format("%s:  %s, %s\t\tArzt: %s", terminZeit, termin.getPatientNachname(),
 		            termin.getPatientVorname(), termin.getArzt().getArztNachName()));
 		}
 	}
