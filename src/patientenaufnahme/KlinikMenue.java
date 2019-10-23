@@ -123,7 +123,7 @@ public class KlinikMenue {
 	}
 
 	/**
-	 * Zeigt aller Termine samt Patienten Daten im System.
+	 * Zeigt aller Termine samt Patientendaten im System.
 	 * 
 	 * @param termine ist eine Variable, die alle Termine in der Liste darstellt.
 	 */

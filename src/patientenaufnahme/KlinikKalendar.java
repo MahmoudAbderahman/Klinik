@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 /**
  * 
- * Die Klasse KlinikKalendar
+ * Die Klasse KlinikKalendar repräsentiert ein Terminbuchungssystem für eine Klinik.
  *
  */
 public class KlinikKalendar {
