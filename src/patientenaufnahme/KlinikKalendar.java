@@ -67,7 +67,7 @@ public class KlinikKalendar {
 	 * @return aller vorher eingetragene Termine als eine Liste.
 	 */
 	public List<PatientenTermin> getHeutigeTermine() {
-		return termine.stream().filter(ter -> ter.getTerminDatumUhrzeit().toLocalDate().equals(heute))
+		return termine.stream().filter(ter -> ter.getTermin().toLocalDate().equals(heute))
 				.collect(Collectors.toList());
 	}
 
@@ -80,7 +80,7 @@ public class KlinikKalendar {
 	 *         gefunden wurde, ansonsten false.
 	 */
 	public boolean hatTermin(LocalDate datum) {
-		return termine.stream().anyMatch(ter -> ter.getTerminDatumUhrzeit().toLocalDate().equals(datum));
+		return termine.stream().anyMatch(ter -> ter.getTermin().toLocalDate().equals(datum));
 	}
 
 }

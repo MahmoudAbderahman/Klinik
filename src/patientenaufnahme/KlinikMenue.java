@@ -130,7 +130,7 @@ public class KlinikMenue {
 	private static void getAlleTermine(List<PatientenTermin> termine) {
 		for (PatientenTermin termin : termine) {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-			String terminZeit = formatter.format(termin.getTerminDatumUhrzeit());
+			String terminZeit = formatter.format(termin.getTermin());
 			System.out.printf("%s:  %s,  %s\t\tArzt: %s", terminZeit, termin.getPatientNachname(),
 					termin.getPatientVorname(), termin.getArzt().getArztNachName());
 		}

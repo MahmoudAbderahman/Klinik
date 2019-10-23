@@ -37,7 +37,10 @@ public class PatientenTermin {
 	public String getPatientNachname() {
 		return patientNachname;
 	}
-
+	/**
+	 * @Getter
+	 * @return Datum und Uhrzeit des Termins vom Patienten
+	 */
 	public LocalDateTime getTermin() {
 		return termin;
 	}
@@ -50,12 +53,7 @@ public class PatientenTermin {
 		return arzt;
 	}
 
-	/**
-	 * @Getter
-	 * @return Datum und Uhrzeit des Termins vom Patienten
-	 */
-	public LocalDateTime getTerminDatumUhrzeit() {
-		return termin;
-	}
+	
+
 
 }
