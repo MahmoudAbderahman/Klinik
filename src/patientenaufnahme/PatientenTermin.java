@@ -2,6 +2,12 @@ package patientenaufnahme;
 
 import java.time.LocalDateTime;
 
+/**
+ * 
+ * Die Klasse PatientenTermin stellt einen Patienten dar. Ein Patient hat einen
+ * Vornamen und einen Nachnamen. Er bekommt einen Termin und einen Arzt.
+ *
+ */
 public class PatientenTermin {
 
 	private String patientVorname;
@@ -16,10 +22,18 @@ public class PatientenTermin {
 		this.arzt = arzt;
 	}
 
+	/**
+	 * @Getter
+	 * @return Vorname des Patienten
+	 */
 	public String getPatientVorname() {
 		return patientVorname;
 	}
 
+	/**
+	 * @Getter
+	 * @return Nachname des Patienten
+	 */
 	public String getPatientNachname() {
 		return patientNachname;
 	}
@@ -28,10 +42,18 @@ public class PatientenTermin {
 		return termin;
 	}
 
+	/**
+	 * @Getter
+	 * @return Name des behandelenden Artzs
+	 */
 	public Arzt getArzt() {
 		return arzt;
 	}
 
+	/**
+	 * @Getter
+	 * @return Datum und Uhrzeit des Termins vom Patienten
+	 */
 	public LocalDateTime getTerminDatumUhrzeit() {
 		return termin;
 	}
