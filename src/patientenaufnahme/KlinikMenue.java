@@ -5,11 +5,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
+import service.MySQLAccess;
+
 /**
  * 
- * Die Klasse KlinikMenue enth‰lt die main Methode bzw. den Startpunkt unseres
+ * Die Klasse KlinikMenue enthaelt die main Methode bzw. den Startpunkt unseres
  * Programms und somit dient sie als Testdriver Klasse. Sie stellt das
- * Programmoberfl‰che dar. Auﬂerdem enth‰lt diese Klasse Methoden zum Zeigen
+ * Programmoberflaeche dar. Auﬂerdem enthaelt diese Klasse Methoden zum Zeigen
  * aller Termine, aller heutigen Termin und zum Eintragen von Patientendaten.
  *
  */
@@ -27,6 +29,7 @@ public class KlinikMenue {
 	 * @throws Throwable f‰ngt sowohl checkedExceptions als auch uncheckedExceptions
 	 */
 	public static void main(String[] args) throws Throwable {
+		
 		kalendar = new KlinikKalendar(LocalDate.now());
 
 		Scanner scanner = new Scanner(System.in);
@@ -45,13 +48,15 @@ public class KlinikMenue {
 	 * 
 	 * @param scanner dient zum Eingeben vom Daten durch den Benutzer.
 	 * @return die Operation, die der Benutzer gew‰hlt hat
-	 * @throws Throwable f‰ngt sowohl checkedExceptions als auch uncheckedExceptions
+	 * @throws Throwable faengt sowohl checkedExceptions als auch uncheckedExceptions
 	 */
 	private static String zeigeMeneu(Scanner scanner) throws Throwable {
 		System.out.println("\nBitte waehlen Sie eine Option aus:");
 		System.out.println("1. Erstelle einen neuen Patiententermin");
 		System.out.println("2. Zeige alle Termine");
 		System.out.println("3. Zeige alle Termine vom heute");
+		System.out.println("4. Zeige alle Termine in Datenbank");
+		System.out.println("5. Zeige alle Termine von Stub");
 		System.out.println("X. System schliessen.");
 		System.out.print("Auswahl: ");
 		String auswahl = scanner.next();
@@ -66,6 +71,21 @@ public class KlinikMenue {
 		case "3":
 			getHeutigeTermine();
 			return auswahl;
+		case "4":
+			MySQLAccess dao = new MySQLAccess();
+			try {
+				dao.readDataBase();
+			} catch(Exception e) {
+				System.out.print(e.getMessage());
+			}
+			return auswahl;
+			
+		case "5":
+			MySQLAccessStub stub = new MySQLAccessStub();
+			stub.readDataBase();
+			alleTermineZeigen(scanner);
+			return auswahl;
+			
 		default:
 			System.out.println("System wird geschlossen...");
 			return auswahl;
@@ -105,7 +125,7 @@ public class KlinikMenue {
 	 * Zeigt aller Termine samt Patienten Daten im System.
 	 * 
 	 * @param scanner dient zum Eingeben vom Daten durch den Benutzer.
-	 * @throws Throwable f‰ngt sowohl checkedExceptions als auch uncheckedExceptions
+	 * @throws Throwable faengt sowohl checkedExceptions als auch uncheckedExceptions
 	 */
 	private static void alleTermineZeigen(Scanner scanner) throws Throwable {
 		System.out.println("\n\nAlle Termine im System:");
@@ -139,7 +159,7 @@ public class KlinikMenue {
 	/**
 	 * Zeigt nur die heutigen Termine.
 	 * 
-	 * @throws Throwable f‰ngt sowohl checkedExceptions als auch uncheckedExceptions
+	 * @throws Throwable faengt sowohl checkedExceptions als auch uncheckedExceptions
 	 */
 	private static void getHeutigeTermine() throws Throwable {
 		System.out.println("\n\nTermine fuer heute:");

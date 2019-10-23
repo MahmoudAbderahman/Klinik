@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 /**
  * 
- * Die Klasse KlinikKalendar repräsentiert ein Terminbuchungssystem für eine Klinik.
+ * Die Klasse KlinikKalendar repräsentiert ein Terminbuchungssystem fuer eine Klinik.
  *
  */
 public class KlinikKalendar {
@@ -37,7 +37,7 @@ public class KlinikKalendar {
 	}
 
 	/**
-	 * Erstellt einen neuen Termin f¸r den Patienten. Dabei werden Daten wie Vorname
+	 * Erstellt einen neuen Termin fuer den Patienten. Dabei werden Daten wie Vorname
 	 * und Nachname des Patienten verlangt. Auﬂerdem sind Daten wie Name des Arzt
 	 * und den Termin auch wichtig.
 	 * 
