@@ -2,8 +2,11 @@ package patientenaufnahme;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 /**
@@ -52,6 +55,27 @@ public class KlinikKalendar {
 		termine.add(termin);
 	}
 
+	
+//	private LocalDateTime umwandleStringToDateTime(String datumUhrzeitString) {
+//		LocalDateTime aktuelleDatumUhrzeit;
+//		try {
+//			if (datumUhrzeitString.toLowerCase().startsWith("heute")) {
+//				String[] teile = datumUhrzeitString.split(" ", 2);
+//				LocalTime uhrzeit = LocalTime.parse(teile[1].toUpperCase(),
+//						DateTimeFormatter.ofPattern("HH:mm", Locale.GERMANY));
+//				aktuelleDatumUhrzeit = LocalDateTime.of(heute, uhrzeit);
+//			} else {
+//				aktuelleDatumUhrzeit = LocalDateTime.parse(datumUhrzeitString.toUpperCase(),
+//						DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm", Locale.GERMANY));
+//			}
+//		} catch (Throwable t) {
+//			throw new RuntimeException("Das Datum kann nicht erzeugt werden im form von [ " + datumUhrzeitString
+//					+ "], bitte nutzen Sie das format [dd.MM.yyyy HH:mm]");
+//		}
+//		return aktuelleDatumUhrzeit;
+//	}
+//	
+	
 	/**
 	 * Gibt alle Termine im System zurueck.
 	 * 
