@@ -1,0 +1,1 @@
+A simmple project in which I have practiced using the JUnit framework to write test cases and validations for some implemented code. This project was part of the Software Quality course in my university.
